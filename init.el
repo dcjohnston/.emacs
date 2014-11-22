@@ -91,3 +91,5 @@
 (ad-activate 'compilation-handle-exit)
 
 (provide 'aj-compilation)
+
+(toggle-diredp-find-file-reuse-dir 1)
