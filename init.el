@@ -34,12 +34,16 @@
 
 ;;(add-hook 'js-mode-hook 'fly-check-mode)
 
-
+;; when in dired more, 'e' opens file without switching buffes
+;; this way i can open a bunch, then flip thru by listing open
+;; buffers
+;; filesets might be easier but i was having trouble getting them set 
 (add-hook 'dired-mode-hook 'derek-dired-easy-open)
 (defun derek-dired-easy-open ()
   (local-set-key (kbd "e") 'dired-display-file))
 
 
+(global-set-key (kbd "C-<tab>") 'other-window)
 (global-set-key (kbd "C-e") 'next-buffer)
 (global-set-key (kbd "C-q") 'previous-buffer)
 (global-set-key (kbd "M-2") 'split-window-right)
