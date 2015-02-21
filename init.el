@@ -20,6 +20,8 @@
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes nil)
  '(display-time-mode t)
+ '(ns-command-modifier (quote meta))
+ '(ns-right-command-modifier (quote none))
  '(show-paren-mode t)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 (custom-set-faces
@@ -28,6 +30,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(global-set-key (kbd "C-a") 'backward-word)
+(global-set-key (kbd "C-d") 'forward-word)
+(global-set-key (kbd "C-w") 'backward-paragraph)
+(global-set-key (kbd "C-s") 'forward-paragraph)
+(global-set-key (kbd "C-e") 'next-buffer)
+(global-set-key (kbd "C-q") 'previous-buffer)
+
 
 (setq-default indent-tabs-mode nil)
 
