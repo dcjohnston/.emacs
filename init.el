@@ -1,7 +1,7 @@
 (when (>= emacs-major-version 24)
   (require 'package)
-  (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (package-initialize)
   )
 
 (add-hook 'sgml-mode-hook 'emmet-mode)
@@ -31,18 +31,27 @@
  ;; If there is more than one, they won't work right.
  )
 
-(global-set-key (kbd "C-a") 'backward-word)
-(global-set-key (kbd "C-d") 'forward-word)
-(global-set-key (kbd "C-w") 'backward-paragraph)
-(global-set-key (kbd "C-s") 'forward-paragraph)
+
+;;(add-hook 'js-mode-hook 'fly-check-mode)
+
+
+(add-hook 'dired-mode-hook 'derek-dired-easy-open)
+(defun derek-dired-easy-open ()
+  (local-set-key (kbd "e") 'dired-display-file))
+
+
 (global-set-key (kbd "C-e") 'next-buffer)
 (global-set-key (kbd "C-q") 'previous-buffer)
+(global-set-key (kbd "M-2") 'split-window-right)
+(global-set-key (kbd "M-1") 'delete-window)
+(global-set-key (kbd "C-b") (lambda ()
+                              (interactive)
+                              (list-buffers)
+                              (other-window -1)))
+
 
 
 (setq-default indent-tabs-mode nil)
-
-;; make me a real LISP!
-(add-hook 'js-mode-hook 'flymake-jshint-load)
 
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
