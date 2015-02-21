@@ -21,7 +21,7 @@
  '(custom-enabled-themes nil)
  '(display-time-mode t)
  '(ns-command-modifier (quote meta))
- '(ns-right-command-modifier (quote none))
+ '(ns-right-command-modifier (quote control))
  '(show-paren-mode t)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 (custom-set-faces
