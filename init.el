@@ -1,12 +1,17 @@
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  (package-initialize)
-  )
+(require 'package)
+(package-initialize)
+
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook  'emmet-mode)
 (setq emmet-preview-default nil)
+
+
+(add-hook 'js-mode-hook 'js2-minor-mode)
+(add-hook 'js2-mode-hook 'ac-js2mode)
+(setq js2-hightlight-level 3)
 
 (require 'color-theme-sanityinc-solarized)
 (color-theme-sanityinc-solarized--define-theme dark)
