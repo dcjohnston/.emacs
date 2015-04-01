@@ -63,9 +63,7 @@
 ;;                               (interactive)
 ;;                               (list-buffers)
 ;;                               (other-window -1)))
-
-
-(setq-default indent-tabs-mode nil)
+(global-set-key (kbd "C-w") 'indent-for-tab-command)
 
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
@@ -128,7 +126,13 @@
 
 ;; (provide 'aj-compilation)
 
+
+
 (toggle-diredp-find-file-reuse-dir 1)
+
+;; (require 'yasnippet)
+;; (yas-global-mode 1)
 (require 'auto-complete-config)
 (ac-config-default)
+(ac-set-trigger-key "TAB")
 (ac-set-trigger-key "<tab>")
