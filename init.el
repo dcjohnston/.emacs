@@ -8,10 +8,16 @@
 (add-hook 'css-mode-hook  'emmet-mode)
 (setq emmet-preview-default nil)
 
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
 (add-hook 'js-mode-hook 'js2-minor-mode)
 (add-hook 'js2-mode-hook 'ac-js2mode)
 (setq js2-hightlight-level 3)
+
+
+(setq-default indent-tabs-mode t)
+(setq-default tab-width 4) ; Assuming you want your tabs to be four spaces wide
+(defvaralias 'c-basic-offset 'tab-width)
 
 (require 'color-theme-sanityinc-solarized)
 (color-theme-sanityinc-solarized--define-theme dark)
@@ -53,11 +59,10 @@
 (global-set-key (kbd "C-q") 'previous-buffer)
 (global-set-key (kbd "M-2") 'split-window-right)
 (global-set-key (kbd "M-1") 'delete-window)
-(global-set-key (kbd "C-b") (lambda ()
-                              (interactive)
-                              (list-buffers)
-                              (other-window -1)))
-
+;; (global-set-key (kbd "C-b") (lambda ()
+;;                               (interactive)
+;;                               (list-buffers)
+;;                               (other-window -1)))
 
 
 (setq-default indent-tabs-mode nil)
@@ -124,3 +129,6 @@
 ;; (provide 'aj-compilation)
 
 (toggle-diredp-find-file-reuse-dir 1)
+(require 'auto-complete-config)
+(ac-config-default)
+(ac-set-trigger-key "<tab>")
